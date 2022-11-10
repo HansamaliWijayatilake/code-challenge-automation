@@ -13,14 +13,22 @@ public class Filtering {
     @FindBy(id="condition")
     WebElement condition;
 
+    @FindBy(id="manufacturer")
+    WebElement manufacturer;
+
 
     public Filtering(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver,this);
     }
 
-    public void setCondition(){
-        Select selection = new Select(condition);
-        selection.selectByValue("used");
+    public void setCondition(String conditionValue){
+        Select conditionSelection = new Select(condition);
+        conditionSelection.selectByValue(conditionValue);
+    }
+
+    public void setManufacturer(String manufacturerValue){
+        Select manufacturerSelection = new Select(manufacturer);
+        manufacturerSelection.selectByValue(manufacturerValue);
     }
 }

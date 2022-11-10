@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import pages.Filtering;
 import pages.Landing;
 import pages.Vehicles;
+import scripts.dataProvider.FiltertingDataProvider;
 
 public class ExecutionScript {
     ChromeDriver driver;
@@ -31,9 +32,10 @@ public class ExecutionScript {
         vehiclesPage.clickCarSection();
     }
 
-    @Test(dependsOnMethods = "navigateToVehiclesAndClickCars")
-    public void setFilteringCriteria(){
+    @Test(dependsOnMethods = "navigateToVehiclesAndClickCars", dataProvider = "getFilterCriteria", dataProviderClass = FiltertingDataProvider.class)
+    public void setFilteringCriteria(String conditionValue, String manufacturerValue){
         filtering = new Filtering(driver);
-        filtering.setCondition();
+        filtering.setCondition(conditionValue);
+        filtering.setManufacturer(manufacturerValue);
     }
 }
