@@ -63,6 +63,6 @@ public class ExecutionScript {
 
         String condition = advert.accessTableData(2,2);
         Assert.assertEquals(condition, FilteringConditions.USED_CONDITION.getValue());
-        System.out.println("----Manufactured Year Verification: PASSED----");
+        System.out.println("----Vehicle Condition Verification: PASSED----");
     }
 }
