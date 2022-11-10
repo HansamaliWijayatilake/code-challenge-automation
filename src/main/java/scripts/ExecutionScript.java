@@ -56,7 +56,13 @@ public class ExecutionScript {
     @Test(dependsOnMethods = "clickOnAdvert")
     public void validateTestData(){
         advert = new Advert(driver);
-        String modelYear = advert.accessRows(1,2);
+
+        String modelYear = advert.accessTableData(1,2);
         Assert.assertEquals(modelYear, FilteringConditions.YEAR_2009.getValue());
+        System.out.println("----Manufactured Year Verification: PASSED----");
+
+        String condition = advert.accessTableData(2,2);
+        Assert.assertEquals(condition, FilteringConditions.USED_CONDITION.getValue());
+        System.out.println("----Manufactured Year Verification: PASSED----");
     }
 }

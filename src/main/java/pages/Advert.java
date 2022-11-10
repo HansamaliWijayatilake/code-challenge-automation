@@ -25,7 +25,7 @@ public class Advert {
         PageFactory.initElements(driver,this);
     }
 
-    public String accessRows(int row, int col){
+    public String accessTableData(int row, int col){
 
         String columnValue = null;
         if(table.findElements(By.tagName("tr")).size()>0){
@@ -34,10 +34,8 @@ public class Advert {
                 cols = rows.get(row).findElements(By.tagName("td"));
                 if(col<=cols.size()){
                     columnValue = cols.get(col-1).getText();
-                    System.out.println(columnValue);
                 }
             }
-           // return columnValue;
 
         }else{
             Assert.fail("No Vehicles matched the selection criteria");

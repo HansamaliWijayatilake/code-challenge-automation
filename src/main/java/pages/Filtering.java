@@ -42,7 +42,7 @@ public class Filtering {
     public void setCondition(String conditionValue){
         condition.click();
         Select conditionSelection = new Select(condition);
-        conditionSelection.selectByValue(conditionValue);
+        conditionSelection.selectByVisibleText(conditionValue);
     }
 
     public void setManufacturer(String manufacturerValue){
@@ -67,7 +67,7 @@ public class Filtering {
     public void setTransmission(String transmissionValue){
         transmission.click();
         Select transmissionSelection = new Select(transmission);
-        transmissionSelection.selectByValue(transmissionValue);
+        transmissionSelection.selectByVisibleText(transmissionValue);
     }
 
     public void submitFilter(){
