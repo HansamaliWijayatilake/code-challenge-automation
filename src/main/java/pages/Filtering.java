@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -48,9 +49,12 @@ public class Filtering {
         manufacturer.click();
         Select manufacturerSelection = new Select(manufacturer);
         manufacturerSelection.selectByValue(manufacturerValue);
+        manufacturer.sendKeys(Keys.ENTER);
     }
 
     public void setModel(String modelValue){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("model")));
         model.click();
         Select modelSelection = new Select(model);
         modelSelection.selectByValue(modelValue);

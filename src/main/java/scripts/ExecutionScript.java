@@ -1,13 +1,12 @@
 package scripts;
 
+import constants.enums.FilteringConditions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.Adverts;
-import pages.Filtering;
-import pages.Landing;
-import pages.Vehicles;
+import pages.*;
 import scripts.dataProvider.FiltertingDataProvider;
 
 public class ExecutionScript {
@@ -16,7 +15,8 @@ public class ExecutionScript {
     Landing landingPage;
     Vehicles vehiclesPage;
     Filtering filtering;
-    Adverts adverts;
+    AdvertsList adverts;
+    Advert advert;
 
     @BeforeClass
     public void setup(){
@@ -49,7 +49,14 @@ public class ExecutionScript {
 
     @Test(dependsOnMethods = "setFilteringCriteria")
     public void clickOnAdvert(){
-        adverts = new Adverts(driver);
+        adverts = new AdvertsList(driver);
         adverts.clickResults();
+    }
+
+    @Test(dependsOnMethods = "clickOnAdvert")
+    public void validateTestData(){
+        advert = new Advert(driver);
+        String modelYear = advert.accessRows(1,2);
+        Assert.assertEquals(modelYear, FilteringConditions.YEAR_2009.getValue());
     }
 }
