@@ -13,33 +13,32 @@ public class Advert {
 
     WebDriver driver;
 
-    @FindBy(xpath="//table[@class='course-info table table-striped']/tbody")
+    @FindBy(xpath = "//table[@class='course-info table table-striped']/tbody")
     WebElement table;
 
     List<WebElement> rows;
     List<WebElement> cols;
 
 
-    public Advert(WebDriver driver){
+    public Advert(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 
-    public String accessTableData(int row, int col){
+    public String accessTableData(int row, int col) {
+        if (table.findElements(By.tagName("tr")).size() == 0) {
+            return null;
+        }
 
         String columnValue = null;
-        if(table.findElements(By.tagName("tr")).size()>0){
-            rows = table.findElements(By.tagName("tr"));
-            for (int i = 0;i < row; i++) {
-                cols = rows.get(row).findElements(By.tagName("td"));
-                if(col<=cols.size()){
-                    columnValue = cols.get(col-1).getText();
-                }
+        rows = table.findElements(By.tagName("tr"));
+        for (int i = 0; i < row; i++) {
+            cols = rows.get(row).findElements(By.tagName("td"));
+            if (col <= cols.size()) {
+                columnValue = cols.get(col - 1).getText();
             }
-
-        }else{
-            Assert.fail("No Vehicles matched the selection criteria");
         }
+
 
         return columnValue;
     }

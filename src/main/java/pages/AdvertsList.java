@@ -24,11 +24,12 @@ public class AdvertsList {
 
     public void clickResults(){
 
-        if(resultsRoot.size()>0){
-            resultsRoot.get(0).findElement(By.tagName("a")).click();
-        }else{
+        if(resultsRoot.size()==0){
             Assert.fail("No Vehicles matched the selection criteria");
         }
 
+        if(resultsRoot.size()>0){
+            resultsRoot.get(0).findElement(By.tagName("a")).click();
+        }
     }
 }
