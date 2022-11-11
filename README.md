@@ -9,7 +9,7 @@ UI Automation for [patpat.lk](https://www.patpat.lk/) using [Java 11](https://ww
   * Click the first search result and navigate to the advertisement page
   * Confirm that the filtered details (test data) are shown for that car in the advertisement table.
 
-# :zap: Functionalities
+# :zap: Features
 * Data driven approach: **DataProviders** feature is a part of data-driven testing wherein it provides different values to a test case in a single execution. 
 It means you can run a single test case once but can execute a method with different data values. 
 For instance, you can test the filter functionality with different inputs but you will be executing the test only once. 
@@ -20,4 +20,17 @@ Selenium Test Automation. It is widely used design pattern in Selenium for enhan
 For every ‘page’ in the application, we create a Page Object to reference the ‘page’ whereas a ‘Page Factory’ is one way of implementing the ‘Page Object Model’. 
 So we have used the **PageFactory** implementation of Page Object Model here.
 
+* Helper methods and Utils: Helper methods are provided to perform several actions including menu selections, access values from tables. 
+
 * Cross Browser Support: This test is written in a way where we can execute tests in Chrome, Firefox and Edge. Necessary dependancies are added to the project
+
+# :parachute: Getting Started
+* Clone the project using below command
+```git
+git clone https://github.com/HansamaliWijayatilake/code-challenge-automation.git
+```
+* Resolve dependancies using the below command
+```maven
+mvn clean install
+```
+* Execute `testng.xml` for test case execution :raised_hands:
