@@ -7,7 +7,7 @@ git clone https://github.com/HansamaliWijayatilake/code-challenge-automation.git
 ```
 * Execute the tests :raised_hands: 
 ```maven
-mvn clean test
+mvn test
 ```
 
 # :tada: Problem
