@@ -98,6 +98,8 @@ public class ExecutionScript {
         String transmission = advert.accessTableData(3,2);
         Assert.assertTrue(transmission.contains(FilteringConditions.AUTO_TRANSMISSION.getValue()));
         System.out.println("----Transmission Verification: PASSED----");
+
+        driver.close();
         driver.quit();
     }
 }
